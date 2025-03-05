@@ -1,0 +1,5 @@
+kafka-python
+pyspark
+numpy
+faker
+graphframes
