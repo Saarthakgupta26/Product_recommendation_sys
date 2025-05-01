@@ -1,0 +1,12 @@
+FROM bitnami/spark:latest
+
+USER root
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY spark_streaming /app
+
+CMD ["spark-submit", "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,graphframes:graphframes:0.8.2-spark3.2-s_2.12", "streaming_app.py"]
